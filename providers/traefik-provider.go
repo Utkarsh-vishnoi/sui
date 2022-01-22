@@ -136,6 +136,7 @@ func (tr *Traefik) GetApps() map[string]*App {
 func (tr *Traefik) TestConnection(output bool) bool {
 	version, err := tr.getTraefikVersion()
 	if err != nil {
+		log.Errorf("Cannot get traefik version | %s", err)
 		return false
 	}
 	log.Debugf("traefik version checked | %s", version.Version)

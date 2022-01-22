@@ -6,8 +6,8 @@ import (
 )
 
 const (
-	maxDisplayNameLen int = 16
-	maxDisplayURLLen  int = 19
+	maxDisplayNameLen int = 20
+	maxDisplayURLLen  int = 30
 )
 
 func (app *App) fixURL() {

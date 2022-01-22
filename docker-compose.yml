@@ -4,14 +4,24 @@ services:
   sui:
     container_name: sui
     restart: unless-stopped
-    image: willfantom/sui:dev
+#    build: ./
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
     ports:
       - 8080:6999
     volumes:
-      - ./configs:/sui
+      - ./config:/sui
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    env_file:
+      - .env
     environment:
       - SUI_DEBUG=true
     labels:
       - sui.enabled=true
       - sui.icon=home
+
+networks:
+  default:
+    name: web
+    external: true
