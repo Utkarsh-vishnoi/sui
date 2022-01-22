@@ -11,7 +11,7 @@ RUN CGO_ENABLED=0 go build -o sui .
 COPY ./templates /app/templates
 COPY ./assets /app/assets
 WORKDIR /app
-COPY entrypoint.sh /
+COPY ./build/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD [ "./sui" ]
